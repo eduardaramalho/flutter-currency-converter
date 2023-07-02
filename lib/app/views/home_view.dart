@@ -1,41 +1,50 @@
 import 'package:flutter/material.dart';
 
+import '../components/components.dart';
+
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff2D2C3E),
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Column(
           children: [
-            Image.network('https://w7.pngwing.com/pngs/781/728/png-transparent-finance-currency-converter-bank-money-bank-orange-payment-logo.png'),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: Row(
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 20, right: 20, top: 100, bottom: 20),
+              child: Column(
                 children: [
-                  Expanded(
-                    child: DropdownButton(items: const [], onChanged: (value) {})
-                    ),
-                  const Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        
-                      ),
-                    ),
+                  Image.asset(
+                    '/converter.jpg',
+                    width: 150,
+                    height: 150,
                   ),
                 ],
               ),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Converter')
+            const CurrencyBox(),
+            const SizedBox(height: 50),
+            const CurrencyBox(),
+            const SizedBox(height: 50),
+            SizedBox(
+              width: 150,
+              child: ElevatedButton(
+                onPressed: () {
+            
+                }, 
+                style: const ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll<Color>(Colors.amber),
+                ),
+                child: Text('Converter'.toUpperCase()),
+                ),
             )
-          ],
-        ),
-      ),
+            ]),
+        )
     );
   }
 }
